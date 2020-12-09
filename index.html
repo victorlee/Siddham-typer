@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Siddham typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+"k": "𑖎",
+"c": "𑖓",
+"T": "𑖘",
+"t": "𑖝",
+"p": "𑖢",
+"kh": "𑖟",
+"ch": "𑖔",
+"Th": "𑖙",
+"th": "𑖞",
+"ph": "𑖣",
+"g": "𑖐",
+"j": "𑖕",
+"D": "𑖚",
+"d": "𑖟",
+"b": "𑖤",
+"gh": "𑖑",
+"jh": "𑖖",
+"Dh": "𑖛",
+"dh": "𑖠",
+"bh": "𑖥",
+"ng": "𑖒",
+"ny": "𑖗",
+"N": "𑖜",
+"n": "𑖡",
+"m": "𑖦",
+"h": "𑖮",
+"y": "𑖧",
+"r": "𑖨",
+"l": "𑖩",
+"v": "𑖪",
+"sh": "𑖫",
+"S": "𑖬",
+"s": "𑖭",
+"M": "𑖽",
+"H": "𑖾",
+"C": "𑖼",
+"q": "𑖿",
+"a": "&#8203;",
+"aa": "𑖯",
+"i": "𑖰",
+"ii": "𑖱",
+"u": "𑖲",
+"uu": "𑖳",
+"R": "𑖴",
+"RR": "𑖵",
+"e": "𑖸",
+"ai": "𑖹",
+"o": "𑖺",
+"au": "𑖻",
+"qa": "𑖀",
+"qaa": "𑖁",
+"qi": "𑖂",
+"qii": "𑖃",
+"qu": "𑖄",
+"quu": "𑖅",
+"qR": "𑖆",
+"qRR": "𑖇",
+"qL": "𑖈",
+"qLL": "𑖉",
+"qe": "𑖊",
+"qai": "𑖋",
+"qo": "𑖌",
+"qau": "𑖍",
+".": "𑗂",
+"..": "𑗃",
+
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+@import url(https://victorlee.github.io/fonts/stylesheet.css);
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  font-family: Arial, Noto Sans Siddham;
+  font-size: 20px;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 15pt;
+	font-family: Arial, Noto Sans Siddham;
+        width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+
+<center><h1 class="text-center">Siddham typer</h1>
+ 
+<center>
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+</th>
+<th>Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="6" placeholder="output" id="output_textarea" style="font-size: 25pt;"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:230px; width:170px">
+
+<table>
+<thead>
+<tr>
+<th>inp.</th>
+<th>outp.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>𑖎</td>
+</tr>
+<tr>
+<td>c</td>
+<td>𑖓</td>
+</tr>
+<tr>
+<td>T</td>
+<td>𑖘</td>
+</tr>
+<tr>
+<td>t</td>
+<td>𑖝</td>
+</tr>
+<tr>
+<td>p</td>
+<td>𑖢</td>
+</tr>
+<tr>
+<td>kh</td>
+<td>𑖟</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>𑖔</td>
+</tr>
+<tr>
+<td>Th</td>
+<td>𑖙</td>
+</tr>
+<tr>
+<td>th</td>
+<td>𑖞</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>𑖣</td>
+</tr>
+<tr>
+<td>g</td>
+<td>𑖐</td>
+</tr>
+<tr>
+<td>j</td>
+<td>𑖕</td>
+</tr>
+<tr>
+<td>D</td>
+<td>𑖚</td>
+</tr>
+<tr>
+<td>d</td>
+<td>𑖟</td>
+</tr>
+<tr>
+<td>b</td>
+<td>𑖤</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>𑖑</td>
+</tr>
+<tr>
+<td>jh</td>
+<td>𑖖</td>
+</tr>
+<tr>
+<td>Dh</td>
+<td>𑖛</td>
+</tr>
+<tr>
+<td>dh</td>
+<td>𑖠</td>
+</tr>
+<tr>
+<td>bh</td>
+<td>𑖥</td>
+</tr>
+<tr>
+<td>ng</td>
+<td>𑖒</td>
+</tr>
+<tr>
+<td>ny</td>
+<td>𑖗</td>
+</tr>
+<tr>
+<td>N</td>
+<td>𑖜</td>
+</tr>
+<tr>
+<td>n</td>
+<td>𑖡</td>
+</tr>
+<tr>
+<td>m</td>
+<td>𑖦</td>
+</tr>
+<tr>
+<td>h</td>
+<td>𑖮</td>
+</tr>
+<tr>
+<td>y</td>
+<td>𑖧</td>
+</tr>
+<tr>
+<td>r</td>
+<td>𑖨</td>
+</tr>
+<tr>
+<td>l</td>
+<td>𑖩</td>
+</tr>
+<tr>
+<td>v</td>
+<td>𑖪</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>𑖫</td>
+</tr>
+<tr>
+<td>S</td>
+<td>𑖬</td>
+</tr>
+<tr>
+<td>s</td>
+<td>𑖭</td>
+</tr>
+<tr>
+<td>M</td>
+<td>𑖽</td>
+</tr>
+<tr>
+<td>H</td>
+<td>𑖾</td>
+</tr>
+<tr>
+<td>C</td>
+<td>𑖼</td>
+</tr>
+<tr>
+<td>q</td>
+<td>𑖿</td>
+</tr>
+<tr>
+<td>a</td>
+<td>&#8203;</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>𑖯</td>
+</tr>
+<tr>
+<td>i</td>
+<td>𑖰</td>
+</tr>
+<tr>
+<td>ii</td>
+<td>𑖱</td>
+</tr>
+<tr>
+<td>u</td>
+<td>𑖲</td>
+</tr>
+<tr>
+<td>uu</td>
+<td>𑖳</td>
+</tr>
+<tr>
+<td>R</td>
+<td>𑖴</td>
+</tr>
+<tr>
+<td>RR</td>
+<td>𑖵</td>
+</tr>
+<tr>
+<td>e</td>
+<td>𑖸</td>
+</tr>
+<tr>
+<td>ai</td>
+<td>𑖹</td>
+</tr>
+<tr>
+<td>o</td>
+<td>𑖺</td>
+</tr>
+<tr>
+<td>au</td>
+<td>𑖻</td>
+</tr>
+<tr>
+<td>qa</td>
+<td>𑖀</td>
+</tr>
+<tr>
+<td>qaa</td>
+<td>𑖁</td>
+</tr>
+<tr>
+<td>qi</td>
+<td>𑖂</td>
+</tr>
+<tr>
+<td>qii</td>
+<td>𑖃</td>
+</tr>
+<tr>
+<td>qu</td>
+<td>𑖄</td>
+</tr>
+<tr>
+<td>quu</td>
+<td>𑖅</td>
+</tr>
+<tr>
+<td>qR</td>
+<td>𑖆</td>
+</tr>
+<tr>
+<td>qRR</td>
+<td>𑖇</td>
+</tr>
+<tr>
+<td>qL</td>
+<td>𑖈</td>
+</tr>
+<tr>
+<td>qLL</td>
+<td>𑖉</td>
+</tr>
+<tr>
+<td>qe</td>
+<td>𑖊</td>
+</tr>
+<tr>
+<td>qai</td>
+<td>𑖋</td>
+</tr>
+<tr>
+<td>qo</td>
+<td>𑖌</td>
+</tr>
+<tr>
+<td>qau</td>
+<td>𑖍</td>
+</tr>
+<tr>
+<td>.</td>
+<td>𑗂</td>
+</tr>
+<tr>
+<td>..</td>
+<td>𑗃</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>more characters: <a href="https://victorlee.github.io/Siddham-unicode/">/Siddham-unicode/</a></p>
+</center>
+
+
+</body>
+</html>
